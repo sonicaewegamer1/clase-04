@@ -43,7 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="camino del santuario.cs" />
+    <Compile Include="escena 2.cs" />
+    <Compile Include="escenario 10.cs" />
+    <Compile Include="escenario 3.cs" />
+    <Compile Include="escenario 4.cs" />
+    <Compile Include="escenario 5.cs" />
+    <Compile Include="escenario 6.cs" />
+    <Compile Include="escenario 7.cs" />
+    <Compile Include="escenario 8.cs" />
+    <Compile Include="escenario 9.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="finales.cs" />
     <Compile Include="HealthPotion.cs" />
     <Compile Include="Combat.cs" />
     <Compile Include="Enemy.cs" />
@@ -54,6 +65,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="puerta de piedra.cs" />
     <Compile Include="Situation.cs" />
   </ItemGroup>
   <ItemGroup>
