@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace examen
 {
-    internal class camino_del_santuario
+    public class CaminoSantuario
     {
-        // -------------------
+        private Game game;
+        private Player player;
+
+        public CaminoSantuario(Game game, Player player)
+        {
+            this.game = game;
+            this.player = player;
+        }
+
+        // -----------------------
         // CAMINO DEL SANTUARIO
         // -----------------------
 
@@ -51,6 +60,7 @@ namespace examen
             else
             {
                 Console.WriteLine("obserbas el santuario, es bastante bello");
+
                 TreasurePath();
                 return;
             }
@@ -69,7 +79,7 @@ namespace examen
 
             if (!alive)
             {
-                Restart();
+                game.Restart();
                 return;
             }
 
@@ -78,10 +88,12 @@ namespace examen
             Console.WriteLine("El aire del santuario cambia.");
             Console.WriteLine("Tu olor ya no es humano.");
             Console.WriteLine("");
+
             Console.WriteLine("Llegas al reino Lycantropo.");
             Console.WriteLine("Hueles como uno de ellos.");
             Console.WriteLine("Te aceptan.");
             Console.WriteLine("");
+
             Console.WriteLine("BEST ENDING: PARTE DE LA MANADA");
         }
     }
