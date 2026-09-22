@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arbol.cs" />
     <Compile Include="CaminoBosque.cs" />
     <Compile Include="CaminoSantuario.cs" />
     <Compile Include="Event.cs" />

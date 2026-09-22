@@ -41,19 +41,24 @@ namespace examen
 
             if (IsValidChoice(choice))
             {
-                if (choice == "1")
+                int numero = int.Parse(choice);
+
+                Arbol arbol = new Arbol();
+
+                int camino = arbol.DecidirCamino(numero);
+
+                if (camino == 1)
                 {
                     CaminoBosque bosque = new CaminoBosque(this, player);
                     bosque.GoblinPath();
                 }
-                else if (choice == "2")
+                else if (camino == 2)
                 {
                     CaminoSantuario santuario = new CaminoSantuario(this, player);
                     santuario.TreasurePath();
                 }
-                else if (choice == "3")
+                else if (camino == 3)
                 {
-                    // Por ahora dejamos este camino aquí.
                     StoneGatePath();
                 }
             }
