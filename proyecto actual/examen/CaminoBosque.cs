@@ -10,7 +10,8 @@ namespace examen
     {
         private Game game;
         private Player player;
-
+        string[] enemies = { "Goblin", "Guardian de las Crypta", "Tarantula Gigante", "Zombie" };
+        int choice = 0;
         public CaminoBosque(Game game, Player player)
         {
             this.game = game;
@@ -31,12 +32,12 @@ namespace examen
             Console.WriteLine("Escuchas unas ramas romperse...");
             Console.WriteLine("");
 
-            Console.WriteLine("¡Un goblin aparece!");
+            Console.WriteLine($"¡Un {enemies[choice]} aparece!");
 
             Combat fight =
                 new Combat(
-                    "Un goblin aparece entre los arboles.",
-                    new Enemy("Goblin", 15, 3)
+                    $"Un {enemies[choice]} aparece entre los arboles.",
+                    new Enemy(enemies[choice], 15, 3)
                 );
 
             bool alive = fight.Execute(player);
@@ -71,9 +72,9 @@ namespace examen
             Console.WriteLine("1. Seguir huellas.");
             Console.WriteLine("2. Entrar en la pequeña cueva.");
 
-            string choice = Console.ReadLine();
+            choice = int.Parse(Console.ReadLine());
 
-            if (choice == "1")
+            if (choice == 1)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Sigues las huellas y encuentras una pocion.");
@@ -88,7 +89,7 @@ namespace examen
 
                 LibraryPath();
             }
-            else if (choice == "2")
+            else if (choice == 2)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Entras en la cueva...");
@@ -125,9 +126,9 @@ namespace examen
             Console.WriteLine("2. El libro de los Lycantropos");
             Console.WriteLine("3. El libro prohibido");
 
-            string choice = Console.ReadLine();
+            choice = int.Parse(Console.ReadLine());
 
-            if (choice == "1")
+            if (choice == 1)
             {
                 Console.WriteLine("");
                 Console.WriteLine("el libro habla de un pueblo que fue abandonado por el rey");
@@ -137,7 +138,7 @@ namespace examen
 
                 VillagePath();
             }
-            else if (choice == "2")
+            else if (choice == 2)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Los Lycantropos buscan proteger el bosque.");
@@ -145,7 +146,7 @@ namespace examen
 
                 LibraryPath();
             }
-            else if (choice == "3")
+            else if (choice == 3)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Lees el libro prohibido...");
@@ -188,9 +189,9 @@ namespace examen
             Console.WriteLine("2. Ignorarlo");
             Console.WriteLine("3. cuestionarlo");
 
-            string choice = Console.ReadLine();
+            choice = int.Parse(Console.ReadLine());
 
-            if (choice == "1")
+            if (choice == 1)
             {
                 Console.WriteLine("");
                 Console.WriteLine("entras a la casa y, ves a su hermano mal herido, tras ayudarlo como agradecimiento te dan una poción");
@@ -205,14 +206,14 @@ namespace examen
 
                 CryptPath();
             }
-            else if (choice == "2")
+            else if (choice == 2)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Decides continuar tu camino.");
 
                 CryptPath();
             }
-            else if (choice == "3")
+            else if (choice == 3)
             {
                 Console.WriteLine("");
                 Console.WriteLine("El hombre comienza a transformarse.");
@@ -221,7 +222,7 @@ namespace examen
                 Combat fight =
                     new Combat(
                         "El aldeano se transforma.",
-                        new Enemy("shapeshifter", 30, 5)
+                        new Enemy(enemies[choice], 30, 5)
                     );
 
                 bool alive = fight.Execute(player);
@@ -268,8 +269,8 @@ namespace examen
 
             Combat fight =
                 new Combat(
-                    "lobo de fuego",
-                    new Enemy("lobo de fuego", 40, 6)
+                    enemies[choice],
+                    new Enemy(enemies[choice], 40, 6)
                 );
 
             bool alive = fight.Execute(player);
@@ -309,17 +310,17 @@ namespace examen
             Console.WriteLine("2. Reino Lycantropo");
             Console.WriteLine("3. Reino Oscuro");
 
-            string choice = Console.ReadLine();
+            choice = int.Parse(Console.ReadLine());
 
-            if (choice == "1")
+            if (choice == 1)
             {
                 HumanKingdom();
             }
-            else if (choice == "2")
+            else if (choice == 2)
             {
                 LycanKingdom();
             }
-            else if (choice == "3")
+            else if (choice == 3)
             {
                 DarkKingdom();
             }
@@ -351,16 +352,16 @@ namespace examen
             Console.WriteLine("1. Aceptar la prueba");
             Console.WriteLine("2. Rechazarla");
 
-            string choice = Console.ReadLine();
+            choice = int.Parse(Console.ReadLine());
 
-            if (choice == "1")
+            if (choice == 1)
             {
                 Console.WriteLine("");
                 Console.WriteLine("El Rey reconoce tu valor, tal parece que el mero echo de aceptar era suficiente.");
 
                 game.FinalGood();
             }
-            else if (choice == "2")
+            else if (choice == 2)
             {
                 Console.WriteLine("");
                 Console.WriteLine("El Rey se esepciona de tí, los guardias te lleban");
@@ -397,16 +398,16 @@ namespace examen
             Console.WriteLine("1. Unirte a la manada");
             Console.WriteLine("2. Enfrentarlos");
 
-            string choice = Console.ReadLine();
+            choice = int.Parse(Console.ReadLine());
 
-            if (choice == "1")
+            if (choice == 1)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Los Lycantropos te aceptan.");
 
                 game.FinalLycan();
             }
-            else if (choice == "2")
+            else if (choice == 2)
             {
                 Combat fight =
                     new Combat(
@@ -429,7 +430,7 @@ namespace examen
             }
             else
             {
-                Console.WriteLine("no trates de uir");
+                Console.WriteLine("no trates de huir");
 
                 LycanKingdom();
             }
@@ -456,9 +457,9 @@ namespace examen
             Console.WriteLine("1. Enfrentarlo");
             Console.WriteLine("2. Unirte a el");
 
-            string choice = Console.ReadLine();
+            choice = int.Parse(Console.ReadLine());
 
-            if (choice == "1")
+            if (choice == 1)
             {
                 Combat fight =
                     new Combat(
@@ -480,7 +481,7 @@ namespace examen
 
                 game.FinalSecret();
             }
-            else if (choice == "2")
+            else if (choice == 2)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Aceptas, empiezas a ser consumido por la oscuridad.");
